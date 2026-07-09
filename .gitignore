@@ -19,6 +19,7 @@ $RECYCLE.BIN/
 
 # --- Claude Code local state ---
 .claude/
+CLAUDE.md
 
 # --- Devcontainer local state ---
 .devcontainer/*.local.json
