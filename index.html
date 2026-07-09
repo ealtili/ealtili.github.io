@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
 <title>Eray ALTILI — Principal Cybersecurity Architect & Advisor</title>
 <meta name="description" content="Eray ALTILI — Principal Cybersecurity Architect & Advisor. 20+ years leading multi-cloud modernization, Zero Trust transformations, and Agentic AI Governance for NATO, World Bank Group, and Cloud Security Alliance.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231e293b%22/><text x=%2250%22 y=%2266%22 font-family=%22system-ui,sans-serif%22 font-size=%2248%22 font-weight=%22700%22 fill=%22%23f8fafc%22 text-anchor=%22middle%22>EA</text></svg>">
@@ -39,6 +40,29 @@
       --accent-contrast: #0d1b2a;
       --surface: #12233b;
     }
+  }
+
+  /* Manual overrides (set via the light/dark toggle, persisted in
+     localStorage). These mirror the blocks above and win over
+     prefers-color-scheme once the visitor picks explicitly. */
+  :root[data-theme="light"] {
+    --bg: #f2f5f9;
+    --text: #0d1b2a;
+    --muted: #4a5a72;
+    --border: #c3d0e0;
+    --accent: #c1590c;
+    --accent-contrast: #ffffff;
+    --surface: #e6edf6;
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0d1b2a;
+    --text: #eef3fa;
+    --muted: #93a7c2;
+    --border: #22385a;
+    --accent: #ffb454;
+    --accent-contrast: #0d1b2a;
+    --surface: #12233b;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -111,10 +135,12 @@
   .nav-actions {
     display: flex;
     align-items: center;
-    gap: 12px;
+    flex-wrap: wrap;
+    gap: 10px 12px;
   }
 
   .nav-cta {
+    white-space: nowrap;
     display: inline-block;
     padding: 8px 16px;
     background-color: var(--accent);
@@ -129,14 +155,15 @@
 
   .nav-cta:hover { opacity: 0.85; }
 
-  .lang-switch {
+  /* shared by the language and theme pill-switches */
+  .pill-switch {
     display: inline-flex;
     border: 1px solid var(--border);
     border-radius: 3px;
     overflow: hidden;
   }
 
-  .lang-btn {
+  .pill-btn {
     background: transparent;
     border: none;
     color: var(--muted);
@@ -148,12 +175,12 @@
     font-family: var(--font-mono);
   }
 
-  .lang-btn.active {
+  .pill-btn.active {
     background-color: var(--text);
     color: var(--bg);
   }
 
-  .lang-btn:not(.active):hover {
+  .pill-btn:not(.active):hover {
     color: var(--text);
     background-color: var(--surface);
   }
@@ -617,9 +644,13 @@
       <span data-i18n="nav.title">Principal Cybersecurity Architect &amp; Advisor</span>
     </div>
     <div class="nav-actions">
-      <div class="lang-switch" role="group" aria-label="Language switch">
-        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+      <div class="pill-switch" role="group" aria-label="Language switch">
+        <button class="pill-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="pill-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+      </div>
+      <div class="pill-switch" role="group" aria-label="Theme switch">
+        <button class="pill-btn" id="btn-theme-light" onclick="setTheme('light')" aria-pressed="false">LIGHT</button>
+        <button class="pill-btn" id="btn-theme-dark" onclick="setTheme('dark')" aria-pressed="false">DARK</button>
       </div>
       <a class="nav-cta" href="#contact" data-i18n="nav.cta">Book a Session</a>
     </div>
@@ -1143,8 +1174,51 @@
     applyLang(lang);
   };
 
+  var THEME_STORAGE_KEY = "eray-altili-theme";
+
+  function systemTheme() {
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  function updateThemeButtons(effective) {
+    var btnLight = document.getElementById("btn-theme-light");
+    var btnDark = document.getElementById("btn-theme-dark");
+    if (!btnLight || !btnDark) return;
+    var isDark = effective === "dark";
+    btnDark.classList.toggle("active", isDark);
+    btnLight.classList.toggle("active", !isDark);
+    btnDark.setAttribute("aria-pressed", String(isDark));
+    btnLight.setAttribute("aria-pressed", String(!isDark));
+  }
+
+  window.setTheme = function (theme) {
+    if (theme !== "light" && theme !== "dark") return;
+    document.documentElement.setAttribute("data-theme", theme);
+    updateThemeButtons(theme);
+    try { localStorage.setItem(THEME_STORAGE_KEY, theme); } catch (e) {}
+  };
+
   document.addEventListener("DOMContentLoaded", function () {
     applyLang(detectDefaultLang());
+
+    var storedTheme = null;
+    try { storedTheme = localStorage.getItem(THEME_STORAGE_KEY); } catch (e) {}
+
+    if (storedTheme === "light" || storedTheme === "dark") {
+      document.documentElement.setAttribute("data-theme", storedTheme);
+      updateThemeButtons(storedTheme);
+    } else {
+      updateThemeButtons(systemTheme());
+      if (window.matchMedia) {
+        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
+          var current = null;
+          try { current = localStorage.getItem(THEME_STORAGE_KEY); } catch (err) {}
+          if (current !== "light" && current !== "dark") {
+            updateThemeButtons(e.matches ? "dark" : "light");
+          }
+        });
+      }
+    }
   });
 })();
 </script>
