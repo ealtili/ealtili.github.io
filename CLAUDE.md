@@ -41,11 +41,19 @@ Devcontainer users get the `python3 -m http.server 8000` preview automatically v
 
 ## Git workflow
 
-Use `git worktree` to keep feature branches isolated from the deployment branch (`main`/`gh-pages`) rather than switching branches in place:
+This repo follows a git-flow branch model (no `git-flow` CLI extension installed — the model is applied with plain git):
+
+- `main` — production; this is the branch GitHub Pages deploys from. Only receives merges from `develop` (or a `hotfix/*` branch for urgent fixes).
+- `develop` — integration branch. `feature/*` branches are cut from and merged back into `develop`.
+- `feature/*`, `hotfix/*` — short-lived branches, isolated via `git worktree` rather than switching branches in place, so `main`'s working copy is never disturbed mid-feature:
 
 ```bash
-git worktree add ../erayweb-feature-x -b feature/x
+git worktree add ../erayweb-feature-x -b feature/x develop
 # ...work in the new worktree...
+git checkout develop && git merge --no-ff feature/x
 git worktree remove ../erayweb-feature-x
 git worktree prune
+git branch -d feature/x
 ```
+
+To ship: merge `develop` into `main` (`git checkout main && git merge --no-ff develop`) — this is the only path that should update the GitHub Pages deploy branch.
