@@ -17,6 +17,9 @@ $RECYCLE.BIN/
 *.swo
 *~
 
+# --- Claude Code local state ---
+.claude/
+
 # --- Devcontainer local state ---
 .devcontainer/*.local.json
 .devcontainer/docker-compose.override.yml
