@@ -1,0 +1,27 @@
+{
+  "name": "erayweb-portfolio-dev",
+  "image": "mcr.microsoft.com/devcontainers/base:alpine-3.20",
+  "remoteUser": "vscode",
+  "containerUser": "vscode",
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "Portfolio (live preview)",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postCreateCommand": "python3 -m ensurepip --upgrade >/dev/null 2>&1 || true",
+  "postStartCommand": "nohup python3 -m http.server 8000 --directory ${containerWorkspaceFolder} > /tmp/devserver.log 2>&1 &",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ritwickdey.LiveServer",
+        "esbenp.prettier-vscode",
+        "streetsidesoftware.code-spell-checker"
+      ],
+      "settings": {
+        "editor.formatOnSave": true
+      }
+    }
+  }
+}

@@ -1,0 +1,942 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eray ALTILI — Principal Cybersecurity Architect & Advisor</title>
+<meta name="description" content="Eray ALTILI — Principal Cybersecurity Architect & Advisor. 20+ years leading multi-cloud modernization, Zero Trust transformations, and Agentic AI Governance for NATO, World Bank Group, and Cloud Security Alliance.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231e293b%22/><text x=%2250%22 y=%2266%22 font-family=%22system-ui,sans-serif%22 font-size=%2248%22 font-weight=%22700%22 fill=%22%23f8fafc%22 text-anchor=%22middle%22>EA</text></svg>">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Eray ALTILI — Principal Cybersecurity Architect & Advisor">
+<meta property="og:description" content="20+ years leading multi-cloud modernization, Zero Trust transformations, and Agentic AI Governance for NATO, World Bank Group, and Cloud Security Alliance.">
+<!-- TODO: add og:url (live site URL) and og:image (headshot/logo) once available -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Eray ALTILI — Principal Cybersecurity Architect & Advisor">
+<meta name="twitter:description" content="20+ years leading multi-cloud modernization, Zero Trust transformations, and Agentic AI Governance for NATO, World Bank Group, and Cloud Security Alliance.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --accent: #1e293b;
+    --accent-contrast: #ffffff;
+    --surface: #f8fafc;
+    --font: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f172a;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --border: #334155;
+      --accent: #f8fafc;
+      --accent-contrast: #0f172a;
+      --surface: #131f36;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .container {
+    max-width: 896px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    max-width: 896px;
+    margin: 0 auto;
+  }
+
+  .nav-name {
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  .nav-name span {
+    display: block;
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .lang-switch {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+
+  .lang-btn.active {
+    background-color: var(--text);
+    color: var(--bg);
+  }
+
+  .lang-btn:not(.active):hover {
+    color: var(--text);
+    background-color: var(--surface);
+  }
+
+  /* ---------- SECTIONS ---------- */
+  main { padding-bottom: 96px; }
+
+  section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section:last-of-type { border-bottom: none; }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  h1, h2, h3 { letter-spacing: -0.02em; }
+
+  /* ---------- HERO ---------- */
+  .hero { padding-top: 56px; }
+
+  .hero h1 {
+    font-size: clamp(1.9rem, 4.5vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 24px;
+  }
+
+  .hero p.lead {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 720px;
+    margin-bottom: 32px;
+  }
+
+  .hero-orgs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .org-pill {
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--muted);
+  }
+
+  /* ---------- DOMAINS ---------- */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 28px;
+  }
+
+  .domain-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .domain-card:hover {
+    border-color: var(--muted);
+    transform: translateY(-2px);
+  }
+
+  .domain-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+  }
+
+  .domain-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .job {
+    padding: 28px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .job:first-of-type { border-top: none; padding-top: 8px; }
+
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .job-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .job-org {
+    font-size: 0.95rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .job-dates {
+    font-size: 0.82rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .job ul {
+    margin-top: 12px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .job li {
+    font-size: 0.92rem;
+    color: var(--text);
+  }
+
+  .job li::marker { color: var(--muted); }
+
+  .metric {
+    font-weight: 700;
+  }
+
+  .earlier-career {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  /* ---------- CERTS / PUBLICATIONS ---------- */
+  .cert-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 24px;
+  }
+
+  .cert-columns h3 {
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+  }
+
+  .cert-columns ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cert-columns li {
+    font-size: 0.88rem;
+    color: var(--muted);
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .cert-columns li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--border);
+  }
+
+  .cert-columns li strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .edu-block {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .edu-item {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .edu-item strong { color: var(--text); }
+
+  /* ---------- CORE CERTIFICATIONS ---------- */
+  .cert-extra {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .cert-extra-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 16px;
+  }
+
+  .cert-extra-grid h3 {
+    font-size: 0.88rem;
+    margin-bottom: 8px;
+  }
+
+  .cert-extra-grid p {
+    font-size: 0.84rem;
+    color: var(--muted);
+  }
+
+  /* ---------- WRITING ---------- */
+  .writing-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 28px;
+  }
+
+  .writing-card {
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .writing-card:hover {
+    border-color: var(--muted);
+    transform: translateY(-2px);
+  }
+
+  .writing-date {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .writing-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .writing-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+
+  .writing-more {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .writing-more:hover { border-color: var(--text); }
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 28px;
+  }
+
+  .contact-item .eyebrow { margin-bottom: 8px; }
+
+  .contact-item a, .contact-item span.value {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .contact-item a:hover { text-decoration: underline; }
+
+  .cta-btn {
+    display: inline-block;
+    margin-top: 32px;
+    padding: 12px 24px;
+    background-color: var(--text);
+    color: var(--bg);
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .cta-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+  }
+
+  footer {
+    padding: 32px 0 48px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 720px) {
+    .domain-grid { grid-template-columns: 1fr; }
+    .cert-columns { grid-template-columns: 1fr; gap: 24px; }
+    .cert-extra-grid { grid-template-columns: 1fr; gap: 20px; }
+    section { padding: 48px 0; }
+    .nav-inner { padding: 14px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-name">
+      Eray ALTILI
+      <span data-i18n="nav.title">Principal Cybersecurity Architect &amp; Advisor</span>
+    </div>
+    <div class="nav-actions">
+      <div class="lang-switch" role="group" aria-label="Language switch">
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="eyebrow" data-i18n="hero.eyebrow">Cybersecurity Architecture &amp; Advisory</div>
+      <h1 data-i18n="hero.headline">Securing the world's most critical institutions for over two decades.</h1>
+      <p class="lead" data-i18n="hero.lead">
+        Principal Cybersecurity Architect &amp; Advisor with 20+ years leading multi-cloud modernization,
+        Zero Trust transformations, and Agentic AI Governance for NATO, the World Bank Group, and the
+        Cloud Security Alliance.
+      </p>
+      <div class="hero-orgs">
+        <span class="org-pill">NATO</span>
+        <span class="org-pill">World Bank Group</span>
+        <span class="org-pill">Cloud Security Alliance</span>
+        <span class="org-pill">United Nations</span>
+      </div>
+    </section>
+
+    <!-- STRATEGIC DOMAINS -->
+    <section id="domains">
+      <div class="eyebrow" data-i18n="domains.eyebrow">Key Strategic Domains</div>
+      <h2 data-i18n="domains.headline">Where deep expertise meets institutional scale.</h2>
+      <div class="domain-grid">
+        <div class="domain-card">
+          <h3 data-i18n="domains.card1.title">Agentic AI Security</h3>
+          <p data-i18n="domains.card1.body">Governance frameworks for autonomous AI agents, Model Context Protocol (MCP) security, and MLOps threat modeling for production AI platforms.</p>
+        </div>
+        <div class="domain-card">
+          <h3 data-i18n="domains.card2.title">Cloud Modernization</h3>
+          <p data-i18n="domains.card2.body">Hybrid multi-cloud security architecture across AWS, Azure, and GCP for large-scale, mission-critical institutional environments.</p>
+        </div>
+        <div class="domain-card">
+          <h3 data-i18n="domains.card3.title">DevSecOps &amp; Zero Trust</h3>
+          <p data-i18n="domains.card3.body">Enterprise-wide DevSecOps pipeline transformation and Zero Trust architecture deployment, embedding security into every stage of delivery.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK HISTORY -->
+    <section id="experience">
+      <div class="eyebrow" data-i18n="exp.eyebrow">Work History</div>
+      <h2 data-i18n="exp.headline">A track record of measurable institutional impact.</h2>
+
+      <div class="job">
+        <div class="job-head">
+          <div>
+            <div class="job-title" data-i18n="exp.job1.title">Principal Cyber Security Advisor</div>
+            <div class="job-org">Caria Digital Technologies</div>
+          </div>
+          <div class="job-dates" data-i18n="exp.job1.dates">July 2025 — Present</div>
+        </div>
+        <ul>
+          <li data-i18n="exp.job1.bullet1">Steering enterprise security transformation focused on <span class="metric">Agentic AI Governance</span>, AI platform security, and Zero Trust Architecture.</li>
+          <li data-i18n="exp.job1.bullet2">Partnering with the Cloud Security Alliance (CSA) to define global security standards; spearheading foundational research on Agentic AI, Model Context Protocol (MCP), and MLOps Threat Modeling.</li>
+          <li data-i18n="exp.job1.bullet3">Architecting and evolving key industry frameworks, including the <span class="metric">Cloud Control Matrix (CCM)</span>, developing advanced threat models that close critical gaps in Generative AI and AI agent security.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div>
+            <div class="job-title" data-i18n="exp.job2.title">Cyber Security Architect</div>
+            <div class="job-org">World Bank Group</div>
+          </div>
+          <div class="job-dates" data-i18n="exp.job2.dates">March 2021 — July 2025</div>
+        </div>
+        <ul>
+          <li data-i18n="exp.job2.bullet1">Architected hybrid multi-cloud security assessments (AWS, Azure, GCP), reducing misconfigurations by <span class="metric">30%</span>.</li>
+          <li data-i18n="exp.job2.bullet2">Led DevSecOps adoption across enterprise pipelines, reducing software vulnerabilities by <span class="metric">50%</span>.</li>
+          <li data-i18n="exp.job2.bullet3">Developed AI governance strategies enabling secure enterprise adoption of generative AI architectures (Copilot, Databricks, MLOps), earning a Public Sector Industry Award.</li>
+          <li data-i18n="exp.job2.bullet4">Established automated threat modeling with IriusRisk, boosting risk identification and mitigation by <span class="metric">40%</span> across solution architectures.</li>
+          <li data-i18n="exp.job2.bullet5">Led policy-as-code enforcement of secure baselines, achieving <span class="metric">40%</span> improved compliance with NIST, CIS, OWASP, and GDPR.</li>
+          <li data-i18n="exp.job2.bullet6">Partnered with the SOC team to integrate Prisma Cloud and Sentinel for SIEM/SOAR, reducing incident response times by <span class="metric">20%</span>.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div>
+            <div class="job-title" data-i18n="exp.job3.title">Cyber Security Architect</div>
+            <div class="job-org">NATO</div>
+          </div>
+          <div class="job-dates" data-i18n="exp.job3.dates">September 2018 — March 2021</div>
+        </div>
+        <ul>
+          <li data-i18n="exp.job3.bullet1">Directed cybersecurity architecture programs for multi-hybrid clouds across NATO member states.</li>
+          <li data-i18n="exp.job3.bullet2">Deployed Zero Trust Frameworks and modernized IAM infrastructures, resulting in a <span class="metric">40%</span> reduction in security incidents.</li>
+          <li data-i18n="exp.job3.bullet3">Deployed and optimized SIEM/SOAR solutions and introduced Breach and Attack Simulation (BAS), strengthening detection and response across multinational teams.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div>
+            <div class="job-title" data-i18n="exp.job4.title">IT Officer</div>
+            <div class="job-org">United Nations</div>
+          </div>
+          <div class="job-dates" data-i18n="exp.job4.dates">September 2016 — September 2018</div>
+        </div>
+        <ul>
+          <li data-i18n="exp.job4.bullet1">Built agile Cloud Centers of Excellence (CCoE) and standardized secure pipeline baselines via Infrastructure as Code (Terraform).</li>
+          <li data-i18n="exp.job4.bullet2">Delivered hybrid multi-cloud reference architectures (AWS, Azure, M365, Citrix) and technology roadmaps, standardizing deployments via Infrastructure as Code and CI/CD.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div>
+            <div class="job-title" data-i18n="exp.job5.title">Principal IT Officer</div>
+            <div class="job-org">NATO</div>
+          </div>
+          <div class="job-dates" data-i18n="exp.job5.dates">May 2008 — September 2016</div>
+        </div>
+        <ul>
+          <li data-i18n="exp.job5.bullet1">Architected and executed a five-year enterprise technology roadmap spanning automation and service-oriented architecture, improving security and risk mitigation by <span class="metric">40%</span>.</li>
+          <li data-i18n="exp.job5.bullet2">Spearheaded global deployment of the Federated Mission Network (FMN) and launched the NATO1st Cross Collaboration Platform, enabling secure information sharing across the alliance.</li>
+          <li data-i18n="exp.job5.bullet3">Led and mentored technical teams of 15+ members across NATO member states, improving performance by <span class="metric">30%</span> through continuous improvement initiatives.</li>
+        </ul>
+      </div>
+
+      <p class="earlier-career" data-i18n="exp.earlier">Earlier career: Senior IT System Engineer, IBM (2006–2008) · IT System Engineer, Alcatel (2004–2006) · IT Consultant, Altili IT Consulting (2001–2004) — foundational years in enterprise security architecture, threat modeling, and infrastructure security for Fortune 500 and telecom environments.</p>
+    </section>
+
+    <!-- CERTIFICATIONS & PUBLICATIONS -->
+    <section id="credentials">
+      <div class="eyebrow" data-i18n="creds.eyebrow">Certifications &amp; Publications</div>
+      <h2 data-i18n="creds.headline">Depth validated by rigor.</h2>
+
+      <div class="cert-columns">
+        <div>
+          <h3 data-i18n="creds.pubs.title">Selected Publications</h3>
+          <ul>
+            <li data-i18n="creds.pubs.item1"><strong>Cloud Security Alliance (CSA)</strong> — Agentic AI Identity and Access Management: A New Approach</li>
+            <li data-i18n="creds.pubs.item2"><strong>Cloud Security Alliance (CSA)</strong> — Managing Privileged Access in a Cloud-First World</li>
+            <li data-i18n="creds.pubs.item3"><strong>Cloud Security Alliance (CSA)</strong> — AI Organizational Responsibilities: Core Security Responsibilities</li>
+            <li data-i18n="creds.pubs.item4"><strong>World Bank Group Knowledge Briefs</strong> — Web3 Security</li>
+            <li data-i18n="creds.pubs.item5"><strong>World Bank Group Knowledge Briefs</strong> — Quantum Computing</li>
+            <li data-i18n="creds.pubs.item6"><strong>Academic Publication</strong> — When Tasks Get Virtual: How Task Virtuality Affects Work Behavior and Innovative Capabilities</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="creds.ai.title">Specialized AI Credentials</h3>
+          <ul>
+            <li data-i18n="creds.ai.item1"><strong>Hugging Face</strong> — Agents &amp; MCP</li>
+            <li data-i18n="creds.ai.item2"><strong>Databricks</strong> — Generative AI &amp; AI Security</li>
+            <li data-i18n="creds.ai.item3"><strong>Securiti</strong> — AI Security &amp; Governance</li>
+            <li data-i18n="creds.ai.item4"><strong>IriusRisk</strong> — Threat Modeling AI/ML Systems</li>
+            <li data-i18n="creds.ai.item5"><strong>Anthropic</strong> — Claude, Claude Code &amp; Claude Cowork Certifications</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cert-extra">
+        <div class="eyebrow" data-i18n="creds.certExtra.eyebrow">Core &amp; Cloud Certifications</div>
+        <div class="cert-extra-grid">
+          <div>
+            <h3 data-i18n="creds.certExtra.col1.title">Cloud &amp; Platform</h3>
+            <p data-i18n="creds.certExtra.col1.body">AWS Solutions Architect, DevOps, SysOps, Security Specialty · Microsoft Azure AI, Cybersecurity Expert, IAM Administrator, MCSE</p>
+          </div>
+          <div>
+            <h3 data-i18n="creds.certExtra.col2.title">Governance &amp; Frameworks</h3>
+            <p data-i18n="creds.certExtra.col2.body">TOGAF · ITIL · PRINCE2 · SCRUM · IT Governance</p>
+          </div>
+          <div>
+            <h3 data-i18n="creds.certExtra.col3.title">Infrastructure &amp; Defense</h3>
+            <p data-i18n="creds.certExtra.col3.body">Linux Foundation Kubernetes Admin &amp; Security · MITRE ATT&amp;CK Defender · CISA ICS300 / ICS Evaluation 401V · Citrix CCA · VMware VCP-DCV</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-block">
+        <div class="eyebrow" data-i18n="creds.edu.eyebrow">Education</div>
+        <div class="edu-item"><strong data-i18n="creds.edu.item1.title">Master in IT Governance</strong> — <span data-i18n="creds.edu.item1.sub">Solvay Brussels School, 2013</span></div>
+        <div class="edu-item"><strong data-i18n="creds.edu.item2.title">Bachelor of Electronics Engineering</strong> — <span data-i18n="creds.edu.item2.sub">Erciyes University, 2004</span></div>
+      </div>
+    </section>
+
+    <!-- WRITING -->
+    <section id="writing">
+      <div class="eyebrow" data-i18n="writing.eyebrow">Latest Writing</div>
+      <h2 data-i18n="writing.headline">Field notes on Agentic AI security and cloud governance.</h2>
+      <div class="writing-grid">
+        <a class="writing-card" href="https://ealtili.medium.com" target="_blank" rel="noopener">
+          <div class="writing-date" data-i18n="writing.item1.date">June 2026</div>
+          <div class="writing-title" data-i18n="writing.item1.title">AI Fluency Mastery Guide</div>
+          <div class="writing-desc" data-i18n="writing.item1.desc">Working with AI effectively, efficiently, ethically, and safely.</div>
+        </a>
+        <a class="writing-card" href="https://ealtili.medium.com" target="_blank" rel="noopener">
+          <div class="writing-date" data-i18n="writing.item2.date">June 2026</div>
+          <div class="writing-title" data-i18n="writing.item2.title">Securing AI Agents End-to-End (Part 2)</div>
+          <div class="writing-desc" data-i18n="writing.item2.desc">Integrating identity, data, runtime, and governance layers across the AI agent lifecycle.</div>
+        </a>
+        <a class="writing-card" href="https://ealtili.medium.com" target="_blank" rel="noopener">
+          <div class="writing-date" data-i18n="writing.item3.date">February 2026</div>
+          <div class="writing-title" data-i18n="writing.item3.title">From "AI as Autocomplete" to "AI as Secure Co-Owner"</div>
+          <div class="writing-desc" data-i18n="writing.item3.desc">How agentic workflows are reshaping secure participation across the software development lifecycle.</div>
+        </a>
+      </div>
+      <a class="writing-more" href="https://ealtili.medium.com" target="_blank" rel="noopener" data-i18n="writing.more">Read more on Medium</a>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="eyebrow" data-i18n="contact.eyebrow">Get In Touch</div>
+      <h2 data-i18n="contact.headline">Let's discuss your security strategy.</h2>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="eyebrow" data-i18n="contact.linkedin.label">LinkedIn</div>
+          <a href="https://www.linkedin.com/in/ealtili" target="_blank" rel="noopener">linkedin.com/in/ealtili</a>
+        </div>
+        <div class="contact-item">
+          <div class="eyebrow" data-i18n="contact.medium.label">Medium</div>
+          <a href="https://ealtili.medium.com" target="_blank" rel="noopener">ealtili.medium.com</a>
+        </div>
+        <div class="contact-item">
+          <div class="eyebrow" data-i18n="contact.github.label">GitHub</div>
+          <a href="https://github.com/ealtili" target="_blank" rel="noopener">github.com/ealtili</a>
+        </div>
+      </div>
+      <a class="cta-btn" href="https://cal.com/ealtili/" target="_blank" rel="noopener" data-i18n="contact.cta">Book a Session</a>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <span data-i18n="footer.text">© 2026 Eray ALTILI. All rights reserved.</span>
+    </div>
+  </footer>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  var i18n = {
+    en: {
+      "nav.title": "Principal Cybersecurity Architect & Advisor",
+      "hero.eyebrow": "Cybersecurity Architecture & Advisory",
+      "hero.headline": "Securing the world's most critical institutions for over two decades.",
+      "hero.lead": "Principal Cybersecurity Architect & Advisor with 20+ years leading multi-cloud modernization, Zero Trust transformations, and Agentic AI Governance for NATO, the World Bank Group, and the Cloud Security Alliance.",
+      "domains.eyebrow": "Key Strategic Domains",
+      "domains.headline": "Where deep expertise meets institutional scale.",
+      "domains.card1.title": "Agentic AI Security",
+      "domains.card1.body": "Governance frameworks for autonomous AI agents, Model Context Protocol (MCP) security, and MLOps threat modeling for production AI platforms.",
+      "domains.card2.title": "Cloud Modernization",
+      "domains.card2.body": "Hybrid multi-cloud security architecture across AWS, Azure, and GCP for large-scale, mission-critical institutional environments.",
+      "domains.card3.title": "DevSecOps & Zero Trust",
+      "domains.card3.body": "Enterprise-wide DevSecOps pipeline transformation and Zero Trust architecture deployment, embedding security into every stage of delivery.",
+      "exp.eyebrow": "Work History",
+      "exp.headline": "A track record of measurable institutional impact.",
+      "exp.job1.title": "Principal Cyber Security Advisor",
+      "exp.job1.dates": "July 2025 — Present",
+      "exp.job1.bullet1": "Steering enterprise security transformation focused on <span class=\"metric\">Agentic AI Governance</span>, AI platform security, and Zero Trust Architecture.",
+      "exp.job1.bullet2": "Partnering with the Cloud Security Alliance (CSA) to define global security standards; spearheading foundational research on Agentic AI, Model Context Protocol (MCP), and MLOps Threat Modeling.",
+      "exp.job1.bullet3": "Architecting and evolving key industry frameworks, including the <span class=\"metric\">Cloud Control Matrix (CCM)</span>, developing advanced threat models that close critical gaps in Generative AI and AI agent security.",
+      "exp.job2.title": "Cyber Security Architect",
+      "exp.job2.dates": "March 2021 — July 2025",
+      "exp.job2.bullet1": "Architected hybrid multi-cloud security assessments (AWS, Azure, GCP), reducing misconfigurations by <span class=\"metric\">30%</span>.",
+      "exp.job2.bullet2": "Led DevSecOps adoption across enterprise pipelines, reducing software vulnerabilities by <span class=\"metric\">50%</span>.",
+      "exp.job2.bullet3": "Developed AI governance strategies enabling secure enterprise adoption of generative AI architectures (Copilot, Databricks, MLOps), earning a Public Sector Industry Award.",
+      "exp.job2.bullet4": "Established automated threat modeling with IriusRisk, boosting risk identification and mitigation by <span class=\"metric\">40%</span> across solution architectures.",
+      "exp.job2.bullet5": "Led policy-as-code enforcement of secure baselines, achieving <span class=\"metric\">40%</span> improved compliance with NIST, CIS, OWASP, and GDPR.",
+      "exp.job2.bullet6": "Partnered with the SOC team to integrate Prisma Cloud and Sentinel for SIEM/SOAR, reducing incident response times by <span class=\"metric\">20%</span>.",
+      "exp.job3.title": "Cyber Security Architect",
+      "exp.job3.dates": "September 2018 — March 2021",
+      "exp.job3.bullet1": "Directed cybersecurity architecture programs for multi-hybrid clouds across NATO member states.",
+      "exp.job3.bullet2": "Deployed Zero Trust Frameworks and modernized IAM infrastructures, resulting in a <span class=\"metric\">40%</span> reduction in security incidents.",
+      "exp.job3.bullet3": "Deployed and optimized SIEM/SOAR solutions and introduced Breach and Attack Simulation (BAS), strengthening detection and response across multinational teams.",
+      "exp.job4.title": "IT Officer",
+      "exp.job4.dates": "September 2016 — September 2018",
+      "exp.job4.bullet1": "Built agile Cloud Centers of Excellence (CCoE) and standardized secure pipeline baselines via Infrastructure as Code (Terraform).",
+      "exp.job4.bullet2": "Delivered hybrid multi-cloud reference architectures (AWS, Azure, M365, Citrix) and technology roadmaps, standardizing deployments via Infrastructure as Code and CI/CD.",
+      "exp.job5.title": "Principal IT Officer",
+      "exp.job5.dates": "May 2008 — September 2016",
+      "exp.job5.bullet1": "Architected and executed a five-year enterprise technology roadmap spanning automation and service-oriented architecture, improving security and risk mitigation by <span class=\"metric\">40%</span>.",
+      "exp.job5.bullet2": "Spearheaded global deployment of the Federated Mission Network (FMN) and launched the NATO1st Cross Collaboration Platform, enabling secure information sharing across the alliance.",
+      "exp.job5.bullet3": "Led and mentored technical teams of 15+ members across NATO member states, improving performance by <span class=\"metric\">30%</span> through continuous improvement initiatives.",
+      "exp.earlier": "Earlier career: Senior IT System Engineer, IBM (2006–2008) · IT System Engineer, Alcatel (2004–2006) · IT Consultant, Altili IT Consulting (2001–2004) — foundational years in enterprise security architecture, threat modeling, and infrastructure security for Fortune 500 and telecom environments.",
+      "creds.eyebrow": "Certifications & Publications",
+      "creds.headline": "Depth validated by rigor.",
+      "creds.pubs.title": "Selected Publications",
+      "creds.pubs.item1": "<strong>Cloud Security Alliance (CSA)</strong> — Agentic AI Identity and Access Management: A New Approach",
+      "creds.pubs.item2": "<strong>Cloud Security Alliance (CSA)</strong> — Managing Privileged Access in a Cloud-First World",
+      "creds.pubs.item3": "<strong>Cloud Security Alliance (CSA)</strong> — AI Organizational Responsibilities: Core Security Responsibilities",
+      "creds.pubs.item4": "<strong>World Bank Group Knowledge Briefs</strong> — Web3 Security",
+      "creds.pubs.item5": "<strong>World Bank Group Knowledge Briefs</strong> — Quantum Computing",
+      "creds.pubs.item6": "<strong>Academic Publication</strong> — When Tasks Get Virtual: How Task Virtuality Affects Work Behavior and Innovative Capabilities",
+      "creds.ai.title": "Specialized AI Credentials",
+      "creds.ai.item1": "<strong>Hugging Face</strong> — Agents & MCP",
+      "creds.ai.item2": "<strong>Databricks</strong> — Generative AI & AI Security",
+      "creds.ai.item3": "<strong>Securiti</strong> — AI Security & Governance",
+      "creds.ai.item4": "<strong>IriusRisk</strong> — Threat Modeling AI/ML Systems",
+      "creds.ai.item5": "<strong>Anthropic</strong> — Claude, Claude Code & Claude Cowork Certifications",
+      "creds.certExtra.eyebrow": "Core & Cloud Certifications",
+      "creds.certExtra.col1.title": "Cloud & Platform",
+      "creds.certExtra.col1.body": "AWS Solutions Architect, DevOps, SysOps, Security Specialty · Microsoft Azure AI, Cybersecurity Expert, IAM Administrator, MCSE",
+      "creds.certExtra.col2.title": "Governance & Frameworks",
+      "creds.certExtra.col2.body": "TOGAF · ITIL · PRINCE2 · SCRUM · IT Governance",
+      "creds.certExtra.col3.title": "Infrastructure & Defense",
+      "creds.certExtra.col3.body": "Linux Foundation Kubernetes Admin & Security · MITRE ATT&CK Defender · CISA ICS300 / ICS Evaluation 401V · Citrix CCA · VMware VCP-DCV",
+      "creds.edu.eyebrow": "Education",
+      "creds.edu.item1.title": "Master in IT Governance",
+      "creds.edu.item1.sub": "Solvay Brussels School, 2013",
+      "creds.edu.item2.title": "Bachelor of Electronics Engineering",
+      "creds.edu.item2.sub": "Erciyes University, 2004",
+      "writing.eyebrow": "Latest Writing",
+      "writing.headline": "Field notes on Agentic AI security and cloud governance.",
+      "writing.item1.date": "June 2026",
+      "writing.item1.title": "AI Fluency Mastery Guide",
+      "writing.item1.desc": "Working with AI effectively, efficiently, ethically, and safely.",
+      "writing.item2.date": "June 2026",
+      "writing.item2.title": "Securing AI Agents End-to-End (Part 2)",
+      "writing.item2.desc": "Integrating identity, data, runtime, and governance layers across the AI agent lifecycle.",
+      "writing.item3.date": "February 2026",
+      "writing.item3.title": "From \"AI as Autocomplete\" to \"AI as Secure Co-Owner\"",
+      "writing.item3.desc": "How agentic workflows are reshaping secure participation across the software development lifecycle.",
+      "writing.more": "Read more on Medium",
+      "contact.eyebrow": "Get In Touch",
+      "contact.headline": "Let's discuss your security strategy.",
+      "contact.linkedin.label": "LinkedIn",
+      "contact.medium.label": "Medium",
+      "contact.github.label": "GitHub",
+      "contact.cta": "Book a Session",
+      "footer.text": "© 2026 Eray ALTILI. All rights reserved."
+    },
+    tr: {
+      "nav.title": "Baş Siber Güvenlik Mimarı ve Danışmanı",
+      "hero.eyebrow": "Siber Güvenlik Mimarisi ve Danışmanlığı",
+      "hero.headline": "Dünyanın en kritik kurumlarını yirmi yılı aşkın süredir güvence altına alıyorum.",
+      "hero.lead": "NATO, Dünya Bankası Grubu ve Cloud Security Alliance için çoklu bulut modernizasyonu, Zero Trust dönüşümleri ve Agentic AI Yönetişimi konularında liderlik eden, 20 yılı aşkın deneyime sahip Baş Siber Güvenlik Mimarı ve Danışmanı.",
+      "domains.eyebrow": "Temel Stratejik Alanlar",
+      "domains.headline": "Derin uzmanlığın kurumsal ölçekle buluştuğu yer.",
+      "domains.card1.title": "Agentic AI Güvenliği",
+      "domains.card1.body": "Otonom yapay zeka ajanları için yönetişim çerçeveleri, Model Context Protocol (MCP) güvenliği ve üretim yapay zeka platformları için MLOps tehdit modellemesi.",
+      "domains.card2.title": "Bulut Modernizasyonu",
+      "domains.card2.body": "Büyük ölçekli, kritik öneme sahip kurumsal ortamlar için AWS, Azure ve GCP genelinde hibrit çoklu bulut güvenlik mimarisi.",
+      "domains.card3.title": "DevSecOps ve Zero Trust",
+      "domains.card3.body": "Güvenliği teslimatın her aşamasına entegre eden kurum genelinde DevSecOps hattı dönüşümü ve Zero Trust mimarisi konuşlandırması.",
+      "exp.eyebrow": "İş Geçmişi",
+      "exp.headline": "Ölçülebilir kurumsal etkiye sahip bir kariyer.",
+      "exp.job1.title": "Baş Siber Güvenlik Danışmanı",
+      "exp.job1.dates": "Temmuz 2025 — Halen",
+      "exp.job1.bullet1": "<span class=\"metric\">Agentic AI Yönetişimi</span>, yapay zeka platform güvenliği ve Zero Trust Mimarisi odaklı kurumsal güvenlik dönüşümünü yönlendiriyor.",
+      "exp.job1.bullet2": "Küresel güvenlik standartlarını belirlemek için Cloud Security Alliance (CSA) ile iş birliği yapıyor; Agentic AI, Model Context Protocol (MCP) ve MLOps Tehdit Modellemesi üzerine temel araştırmalara öncülük ediyor.",
+      "exp.job1.bullet3": "<span class=\"metric\">Cloud Control Matrix (CCM)</span> dahil olmak üzere önemli endüstri çerçevelerini tasarlıyor ve geliştiriyor; Üretken Yapay Zeka ve yapay zeka ajanı güvenliğindeki kritik boşlukları kapatan gelişmiş tehdit modelleri oluşturuyor.",
+      "exp.job2.title": "Siber Güvenlik Mimarı",
+      "exp.job2.dates": "Mart 2021 — Temmuz 2025",
+      "exp.job2.bullet1": "Hibrit çoklu bulut güvenlik değerlendirmelerini (AWS, Azure, GCP) tasarladı, yanlış yapılandırmaları <span class=\"metric\">%30</span> azalttı.",
+      "exp.job2.bullet2": "Kurumsal hatlar genelinde DevSecOps benimsemesine öncülük etti, yazılım güvenlik açıklarını <span class=\"metric\">%50</span> azalttı.",
+      "exp.job2.bullet3": "Üretken yapay zeka mimarilerinin (Copilot, Databricks, MLOps) güvenli kurumsal benimsenmesini sağlayan yapay zeka yönetişim stratejileri geliştirdi ve bir Kamu Sektörü Endüstri Ödülü kazandı.",
+      "exp.job2.bullet4": "IriusRisk ile otomatikleştirilmiş tehdit modelleme pratiği kurdu, çözüm mimarileri genelinde risk tespiti ve azaltımını <span class=\"metric\">%40</span> artırdı.",
+      "exp.job2.bullet5": "Güvenli temelleri zorunlu kılan policy-as-code uygulamasına öncülük etti, NIST, CIS, OWASP ve GDPR uyumluluğunu <span class=\"metric\">%40</span> iyileştirdi.",
+      "exp.job2.bullet6": "SOC ekibiyle iş birliği yaparak Prisma Cloud ve Sentinel'i SIEM/SOAR için entegre etti, olay müdahale sürelerini <span class=\"metric\">%20</span> azalttı.",
+      "exp.job3.title": "Siber Güvenlik Mimarı",
+      "exp.job3.dates": "Eylül 2018 — Mart 2021",
+      "exp.job3.bullet1": "NATO üye ülkeleri genelinde çoklu hibrit bulutlar için siber güvenlik mimarisi programlarını yönetti.",
+      "exp.job3.bullet2": "Zero Trust Çerçeveleri konuşlandırdı ve IAM altyapılarını modernize ederek güvenlik olaylarında <span class=\"metric\">%40</span> azalma sağladı.",
+      "exp.job3.bullet3": "SIEM/SOAR çözümlerini konuşlandırdı ve optimize etti, Breach and Attack Simulation (BAS) uygulamasını devreye aldı; çok uluslu ekipler genelinde tespit ve müdahale kapasitesini güçlendirdi.",
+      "exp.job4.title": "BT Görevlisi",
+      "exp.job4.dates": "Eylül 2016 — Eylül 2018",
+      "exp.job4.bullet1": "Çevik Bulut Mükemmeliyet Merkezleri (CCoE) kurdu ve Infrastructure as Code (Terraform) aracılığıyla güvenli hat temellerini standartlaştırdı.",
+      "exp.job4.bullet2": "Hibrit çoklu bulut referans mimarileri (AWS, Azure, M365, Citrix) ve teknoloji yol haritaları sundu; Infrastructure as Code ve CI/CD ile dağıtımları standartlaştırdı.",
+      "exp.job5.title": "Baş BT Görevlisi",
+      "exp.job5.dates": "Mayıs 2008 — Eylül 2016",
+      "exp.job5.bullet1": "Otomasyon ve servis odaklı mimariyi kapsayan beş yıllık kurumsal teknoloji yol haritasını tasarladı ve uyguladı; güvenlik ve risk azaltımını <span class=\"metric\">%40</span> iyileştirdi.",
+      "exp.job5.bullet2": "Federated Mission Network'ün (FMN) küresel dağıtımına öncülük etti ve NATO1st Cross Collaboration Platformu'nu hayata geçirerek ittifak genelinde güvenli bilgi paylaşımını sağladı.",
+      "exp.job5.bullet3": "NATO üye ülkeleri genelinde 15'ten fazla kişilik teknik ekiplere liderlik etti ve mentorluk yaptı; sürekli iyileştirme girişimleriyle performansı <span class=\"metric\">%30</span> artırdı.",
+      "exp.earlier": "Erken kariyer: Kıdemli BT Sistem Mühendisi, IBM (2006–2008) · BT Sistem Mühendisi, Alcatel (2004–2006) · BT Danışmanı, Altili IT Consulting (2001–2004) — Fortune 500 ve telekom ortamlarında kurumsal güvenlik mimarisi, tehdit modelleme ve altyapı güvenliğinde temel oluşturan yıllar.",
+      "creds.eyebrow": "Sertifikalar ve Yayınlar",
+      "creds.headline": "Titizlikle doğrulanmış derinlik.",
+      "creds.pubs.title": "Seçilmiş Yayınlar",
+      "creds.pubs.item1": "<strong>Cloud Security Alliance (CSA)</strong> — Agentic AI Kimlik ve Erişim Yönetimi: Yeni Bir Yaklaşım",
+      "creds.pubs.item2": "<strong>Cloud Security Alliance (CSA)</strong> — Bulut Öncelikli Bir Dünyada Ayrıcalıklı Erişim Yönetimi",
+      "creds.pubs.item3": "<strong>Cloud Security Alliance (CSA)</strong> — Yapay Zeka Kurumsal Sorumlulukları: Temel Güvenlik Sorumlulukları",
+      "creds.pubs.item4": "<strong>Dünya Bankası Grubu Bilgi Notları</strong> — Web3 Güvenliği",
+      "creds.pubs.item5": "<strong>Dünya Bankası Grubu Bilgi Notları</strong> — Kuantum Bilişim",
+      "creds.pubs.item6": "<strong>Akademik Yayın</strong> — Görevler Sanallaştığında: Görev Sanallığının Çalışma Davranışı ve Yenilikçi Kapasiteler Üzerindeki Etkisi",
+      "creds.ai.title": "Uzmanlaşmış Yapay Zeka Sertifikaları",
+      "creds.ai.item1": "<strong>Hugging Face</strong> — Ajanlar ve MCP",
+      "creds.ai.item2": "<strong>Databricks</strong> — Üretken Yapay Zeka ve Yapay Zeka Güvenliği",
+      "creds.ai.item3": "<strong>Securiti</strong> — Yapay Zeka Güvenliği ve Yönetişimi",
+      "creds.ai.item4": "<strong>IriusRisk</strong> — Yapay Zeka/Makine Öğrenmesi Sistemleri için Tehdit Modellemesi",
+      "creds.ai.item5": "<strong>Anthropic</strong> — Claude, Claude Code ve Claude Cowork Sertifikaları",
+      "creds.certExtra.eyebrow": "Temel ve Bulut Sertifikaları",
+      "creds.certExtra.col1.title": "Bulut ve Platform",
+      "creds.certExtra.col1.body": "AWS Solutions Architect, DevOps, SysOps, Security Specialty · Microsoft Azure AI, Cyber Security Expert, IAM Administrator, MCSE",
+      "creds.certExtra.col2.title": "Yönetişim ve Çerçeveler",
+      "creds.certExtra.col2.body": "TOGAF · ITIL · PRINCE2 · SCRUM · IT Governance",
+      "creds.certExtra.col3.title": "Altyapı ve Savunma",
+      "creds.certExtra.col3.body": "Linux Foundation Kubernetes Admin ve Security · MITRE ATT&CK Defender · CISA ICS300 / ICS Değerlendirme 401V · Citrix CCA · VMware VCP-DCV",
+      "creds.edu.eyebrow": "Eğitim",
+      "creds.edu.item1.title": "IT Yönetişimi Yüksek Lisansı",
+      "creds.edu.item1.sub": "Solvay Brussels School, 2013",
+      "creds.edu.item2.title": "Elektronik Mühendisliği Lisansı",
+      "creds.edu.item2.sub": "Erciyes Üniversitesi, 2004",
+      "writing.eyebrow": "Son Yazılar",
+      "writing.headline": "Agentic AI güvenliği ve bulut yönetişimi üzerine notlar.",
+      "writing.item1.date": "Haziran 2026",
+      "writing.item1.title": "Yapay Zeka Yetkinliği Ustalık Rehberi",
+      "writing.item1.desc": "Yapay zeka ile etkili, verimli, etik ve güvenli bir şekilde çalışmak.",
+      "writing.item2.date": "Haziran 2026",
+      "writing.item2.title": "Uçtan Uca Yapay Zeka Ajanlarını Güvence Altına Almak (Bölüm 2)",
+      "writing.item2.desc": "Yapay zeka ajanı yaşam döngüsü boyunca kimlik, veri, çalışma zamanı ve yönetişim katmanlarını entegre etmek.",
+      "writing.item3.date": "Şubat 2026",
+      "writing.item3.title": "\"Otomatik Tamamlama Olarak Yapay Zeka\"dan \"Güvenli Ortak Sahip Olarak Yapay Zeka\"ya",
+      "writing.item3.desc": "Agentic iş akışlarının yazılım geliştirme yaşam döngüsü boyunca güvenli katılımı nasıl yeniden şekillendirdiği.",
+      "writing.more": "Medium'da devamını okuyun",
+      "contact.eyebrow": "İletişime Geçin",
+      "contact.headline": "Güvenlik stratejinizi konuşalım.",
+      "contact.linkedin.label": "LinkedIn",
+      "contact.medium.label": "Medium",
+      "contact.github.label": "GitHub",
+      "contact.cta": "Görüşme Ayarlayın",
+      "footer.text": "© 2026 Eray ALTILI. Tüm hakları saklıdır."
+    }
+  };
+
+  var STORAGE_KEY = "eray-altili-lang";
+
+  function detectDefaultLang() {
+    var stored = null;
+    try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+    if (stored === "en" || stored === "tr") return stored;
+
+    var nav = window.navigator.language || window.navigator.userLanguage || "en";
+    return nav.toLowerCase().indexOf("tr") === 0 ? "tr" : "en";
+  }
+
+  function applyLang(lang) {
+    var dict = i18n[lang];
+    if (!dict) return;
+
+    var nodes = document.querySelectorAll("[data-i18n]");
+    for (var i = 0; i < nodes.length; i++) {
+      var key = nodes[i].getAttribute("data-i18n");
+      if (dict[key] !== undefined) {
+        nodes[i].innerHTML = dict[key];
+      }
+    }
+
+    document.documentElement.setAttribute("lang", lang);
+
+    var btnEn = document.getElementById("btn-en");
+    var btnTr = document.getElementById("btn-tr");
+    if (lang === "tr") {
+      btnTr.classList.add("active");
+      btnEn.classList.remove("active");
+    } else {
+      btnEn.classList.add("active");
+      btnTr.classList.remove("active");
+    }
+
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+  }
+
+  window.setLang = function (lang) {
+    applyLang(lang);
+  };
+
+  document.addEventListener("DOMContentLoaded", function () {
+    applyLang(detectDefaultLang());
+  });
+})();
+</script>
+
+</body>
+</html>
