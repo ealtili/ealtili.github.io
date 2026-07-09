@@ -185,6 +185,44 @@
     background-color: var(--surface);
   }
 
+  /* ---------- THEME TOGGLE (icon button) ---------- */
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .theme-toggle:hover {
+    color: var(--text);
+    background-color: var(--surface);
+    border-color: var(--muted);
+  }
+
+  /* Icon visibility mirrors the color-token override logic above:
+     default follows the OS, an explicit data-theme wins. Specificity
+     here must stay a plain single class — anything more specific
+     (e.g. ".theme-toggle svg") would silently win over these rules. */
+  .icon-moon { display: none; }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) .icon-sun { display: none; }
+    :root:not([data-theme]) .icon-moon { display: inline; }
+  }
+
+  :root[data-theme="light"] .icon-sun { display: inline; }
+  :root[data-theme="light"] .icon-moon { display: none; }
+
+  :root[data-theme="dark"] .icon-sun { display: none; }
+  :root[data-theme="dark"] .icon-moon { display: inline; }
+
   /* ---------- SECTIONS ---------- */
   main { padding-bottom: 96px; }
 
@@ -648,10 +686,22 @@
         <button class="pill-btn" id="btn-en" onclick="setLang('en')">EN</button>
         <button class="pill-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
       </div>
-      <div class="pill-switch" role="group" aria-label="Theme switch">
-        <button class="pill-btn" id="btn-theme-light" onclick="setTheme('light')" aria-pressed="false">LIGHT</button>
-        <button class="pill-btn" id="btn-theme-dark" onclick="setTheme('dark')" aria-pressed="false">DARK</button>
-      </div>
+      <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()" aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <line x1="12" y1="2" x2="12" y2="4"></line>
+          <line x1="12" y1="20" x2="12" y2="22"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="2" y1="12" x2="4" y2="12"></line>
+          <line x1="20" y1="12" x2="22" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
       <a class="nav-cta" href="#contact" data-i18n="nav.cta">Book a Session</a>
     </div>
   </div>
@@ -1180,22 +1230,24 @@
     return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   }
 
-  function updateThemeButtons(effective) {
-    var btnLight = document.getElementById("btn-theme-light");
-    var btnDark = document.getElementById("btn-theme-dark");
-    if (!btnLight || !btnDark) return;
-    var isDark = effective === "dark";
-    btnDark.classList.toggle("active", isDark);
-    btnLight.classList.toggle("active", !isDark);
-    btnDark.setAttribute("aria-pressed", String(isDark));
-    btnLight.setAttribute("aria-pressed", String(!isDark));
+  function currentTheme() {
+    var attr = document.documentElement.getAttribute("data-theme");
+    return (attr === "light" || attr === "dark") ? attr : systemTheme();
   }
 
-  window.setTheme = function (theme) {
-    if (theme !== "light" && theme !== "dark") return;
-    document.documentElement.setAttribute("data-theme", theme);
-    updateThemeButtons(theme);
-    try { localStorage.setItem(THEME_STORAGE_KEY, theme); } catch (e) {}
+  function updateThemeButton(effective) {
+    var btn = document.getElementById("theme-toggle-btn");
+    if (!btn) return;
+    var isDark = effective === "dark";
+    btn.setAttribute("aria-pressed", String(isDark));
+    btn.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+  }
+
+  window.toggleTheme = function () {
+    var next = currentTheme() === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    updateThemeButton(next);
+    try { localStorage.setItem(THEME_STORAGE_KEY, next); } catch (e) {}
   };
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -1206,15 +1258,15 @@
 
     if (storedTheme === "light" || storedTheme === "dark") {
       document.documentElement.setAttribute("data-theme", storedTheme);
-      updateThemeButtons(storedTheme);
+      updateThemeButton(storedTheme);
     } else {
-      updateThemeButtons(systemTheme());
+      updateThemeButton(systemTheme());
       if (window.matchMedia) {
         window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
           var current = null;
           try { current = localStorage.getItem(THEME_STORAGE_KEY); } catch (err) {}
           if (current !== "light" && current !== "dark") {
-            updateThemeButtons(e.matches ? "dark" : "light");
+            updateThemeButton(e.matches ? "dark" : "light");
           }
         });
       }
