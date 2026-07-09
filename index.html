@@ -114,6 +114,21 @@
     gap: 12px;
   }
 
+  .nav-cta {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--accent);
+    color: var(--accent-contrast);
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 0.78rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .nav-cta:hover { opacity: 0.85; }
+
   .lang-switch {
     display: inline-flex;
     border: 1px solid var(--border);
@@ -516,20 +531,68 @@
 
   .contact-item a:hover { text-decoration: underline; }
 
-  .cta-btn {
-    display: inline-block;
-    margin-top: 32px;
-    padding: 12px 24px;
-    background-color: var(--accent);
-    color: var(--accent-contrast);
-    font-weight: 600;
-    font-size: 0.9rem;
-    border-radius: 2px;
-    text-decoration: none;
-    transition: opacity 0.2s ease;
+  /* ---------- PROCESS (reuses the ruler's dimension-line tick,
+     applied to a real sequence rather than a set of facts) ---------- */
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
   }
 
-  .cta-btn:hover { opacity: 0.85; }
+  .process-step { position: relative; padding-left: 14px; }
+
+  .process-step::before {
+    content: "";
+    position: absolute;
+    top: -28px;
+    left: 0;
+    width: 1px;
+    height: 24px;
+    background: var(--accent);
+  }
+
+  .process-step::after {
+    content: "";
+    position: absolute;
+    top: -28px;
+    left: 0;
+    width: 6px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .process-num {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .process-step h3 { font-size: 1rem; margin-bottom: 6px; }
+  .process-step p { font-size: 0.88rem; color: var(--muted); }
+
+  /* ---------- BOOKING EMBED ---------- */
+  .booking-embed {
+    margin-top: 40px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    background-color: var(--surface);
+  }
+
+  .booking-fallback {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .booking-fallback:hover { color: var(--text); border-color: var(--text); }
 
   footer {
     padding: 32px 0 48px;
@@ -543,8 +606,9 @@
     .domain-grid { grid-template-columns: 1fr; }
     .cert-columns { grid-template-columns: 1fr; gap: 24px; }
     .cert-extra-grid { grid-template-columns: 1fr; gap: 20px; }
+    .process-grid { grid-template-columns: 1fr; gap: 28px; }
     section { padding: 48px 0; }
-    .nav-inner { padding: 14px 20px; }
+    .nav-inner { padding: 14px 20px; flex-wrap: wrap; row-gap: 10px; }
   }
 </style>
 </head>
@@ -561,6 +625,7 @@
         <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
         <button class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
       </div>
+      <a class="nav-cta" href="#contact" data-i18n="nav.cta">Book a Session</a>
     </div>
   </div>
 </header>
@@ -797,7 +862,40 @@
           <a href="https://github.com/ealtili" target="_blank" rel="noopener">github.com/ealtili</a>
         </div>
       </div>
-      <a class="cta-btn" href="https://cal.com/ealtili/" target="_blank" rel="noopener" data-i18n="contact.cta">Book a Session</a>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="process-num">01</div>
+          <h3 data-i18n="process.step1.title">Book a 20-minute call</h3>
+          <p data-i18n="process.step1.body">A focused conversation to understand your security posture and what you need.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">02</div>
+          <h3 data-i18n="process.step2.title">Scoping &amp; proposal</h3>
+          <p data-i18n="process.step2.body">A clear, written scope of engagement — no surprises, no pressure.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">03</div>
+          <h3 data-i18n="process.step3.title">Engagement kickoff</h3>
+          <p data-i18n="process.step3.body">Work begins against agreed milestones and measurable outcomes.</p>
+        </div>
+      </div>
+
+      <div class="booking-embed">
+        <div style="width:100%;height:630px;overflow:scroll" id="my-cal-inline-15min"></div>
+      </div>
+      <a class="booking-fallback" href="https://cal.com/ealtili/15min" target="_blank" rel="noopener" data-i18n="contact.bookingFallback">Having trouble? Book directly on Cal.com</a>
+      <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", "15min", {origin:"https://app.cal.com"});
+        Cal.config = Cal.config || {};
+        Cal.config.forwardQueryParams = true;
+        Cal.ns["15min"]("inline", {
+          elementOrSelector: "#my-cal-inline-15min",
+          config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+          calLink: "ealtili/15min",
+        });
+        Cal.ns["15min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+      </script>
     </section>
 
   </div>
@@ -907,7 +1005,14 @@
       "contact.linkedin.label": "LinkedIn",
       "contact.medium.label": "Medium",
       "contact.github.label": "GitHub",
-      "contact.cta": "Book a Session",
+      "contact.bookingFallback": "Having trouble? Book directly on Cal.com",
+      "process.step1.title": "Book a 20-minute call",
+      "process.step1.body": "A focused conversation to understand your security posture and what you need.",
+      "process.step2.title": "Scoping & proposal",
+      "process.step2.body": "A clear, written scope of engagement — no surprises, no pressure.",
+      "process.step3.title": "Engagement kickoff",
+      "process.step3.body": "Work begins against agreed milestones and measurable outcomes.",
+      "nav.cta": "Book a Session",
       "footer.text": "© 2026 Eray ALTILI. All rights reserved."
     },
     tr: {
@@ -1003,7 +1108,14 @@
       "contact.linkedin.label": "LinkedIn",
       "contact.medium.label": "Medium",
       "contact.github.label": "GitHub",
-      "contact.cta": "Görüşme Ayarlayın",
+      "contact.bookingFallback": "Sorun mu yaşıyorsunuz? Doğrudan Cal.com üzerinden görüşme ayarlayın",
+      "process.step1.title": "20 dakikalık görüşme ayarlayın",
+      "process.step1.body": "Güvenlik duruşunuzu ve ihtiyaçlarınızı anlamaya yönelik odaklı bir görüşme.",
+      "process.step2.title": "Kapsam belirleme ve teklif",
+      "process.step2.body": "Net, yazılı bir çalışma kapsamı — sürpriz yok, baskı yok.",
+      "process.step3.title": "Çalışmanın başlaması",
+      "process.step3.body": "Üzerinde anlaşılan kilometre taşları ve ölçülebilir sonuçlara göre çalışma başlar.",
+      "nav.cta": "Görüşme Ayarlayın",
       "footer.text": "© 2026 Eray ALTILI. Tüm hakları saklıdır."
     }
   };
