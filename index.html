@@ -15,31 +15,45 @@
 <meta name="twitter:description" content="20+ years leading multi-cloud modernization, Zero Trust transformations, and Agentic AI Governance for NATO, World Bank Group, and Cloud Security Alliance.">
 <style>
   :root {
-    --bg: #ffffff;
-    --text: #1e293b;
-    --muted: #64748b;
-    --border: #e2e8f0;
-    --accent: #1e293b;
+    /* "Security Architecture Blueprint" — blueprint paper in light mode */
+    --bg: #f2f5f9;
+    --text: #0d1b2a;
+    --muted: #4a5a72;
+    --border: #c3d0e0;
+    --accent: #c1590c;
     --accent-contrast: #ffffff;
-    --surface: #f8fafc;
-    --font: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif;
+    --surface: #e6edf6;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif;
+    --font-display: Cambria, "Iowan Old Style", Georgia, "Times New Roman", serif;
+    --font-mono: ui-monospace, "Cascadia Code", "SF Mono", Consolas, "Liberation Mono", monospace;
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #0f172a;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --border: #334155;
-      --accent: #f8fafc;
-      --accent-contrast: #0f172a;
-      --surface: #131f36;
+      /* blueprint negative — ink-on-navy, like a real architectural blueprint */
+      --bg: #0d1b2a;
+      --text: #eef3fa;
+      --muted: #93a7c2;
+      --border: #22385a;
+      --accent: #ffb454;
+      --accent-contrast: #0d1b2a;
+      --surface: #12233b;
     }
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
   html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
 
   body {
     font-family: var(--font);
@@ -77,18 +91,21 @@
   }
 
   .nav-name {
+    font-family: var(--font-display);
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.05rem;
     letter-spacing: -0.01em;
     color: var(--text);
   }
 
   .nav-name span {
     display: block;
+    font-family: var(--font-mono);
     font-weight: 400;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
     color: var(--muted);
-    margin-top: 2px;
+    margin-top: 3px;
   }
 
   .nav-actions {
@@ -100,7 +117,7 @@
   .lang-switch {
     display: inline-flex;
     border: 1px solid var(--border);
-    border-radius: 6px;
+    border-radius: 3px;
     overflow: hidden;
   }
 
@@ -108,12 +125,12 @@
     background: transparent;
     border: none;
     color: var(--muted);
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 600;
     padding: 6px 12px;
     cursor: pointer;
-    transition: all 0.2s ease;
-    font-family: inherit;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    font-family: var(--font-mono);
   }
 
   .lang-btn.active {
@@ -137,18 +154,45 @@
   section:last-of-type { border-bottom: none; }
 
   .eyebrow {
+    font-family: var(--font-mono);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    font-size: 0.75rem;
-    font-weight: 700;
+    font-size: 0.72rem;
+    font-weight: 600;
     color: var(--muted);
     margin-bottom: 12px;
   }
 
-  h1, h2, h3 { letter-spacing: -0.02em; }
+  h1, h2 { font-family: var(--font-display); letter-spacing: -0.01em; }
+  h3 { letter-spacing: -0.01em; }
 
   /* ---------- HERO ---------- */
-  .hero { padding-top: 56px; }
+  .hero { padding-top: 56px; position: relative; }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--border) 55%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--border) 55%, transparent) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: -1px -1px;
+    mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  }
+
+  .hero > * { animation: rise 0.6s ease both; }
+  .hero .eyebrow { animation-delay: 0s; }
+  .hero h1 { animation-delay: 0.08s; }
+  .hero p.lead { animation-delay: 0.16s; }
+  .hero-ruler { animation-delay: 0.24s; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: none; }
+  }
 
   .hero h1 {
     font-size: clamp(1.9rem, 4.5vw, 2.75rem);
@@ -161,22 +205,63 @@
     font-size: 1.1rem;
     color: var(--muted);
     max-width: 720px;
-    margin-bottom: 32px;
+    margin-bottom: 40px;
   }
 
-  .hero-orgs {
+  /* ---------- HERO RULER (signature element) ---------- */
+  /* A literal architectural dimension line: ticks rise from a baseline
+     to measure out the career's headline facts. */
+  .hero-ruler {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 32px 48px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
   }
 
-  .org-pill {
-    font-size: 0.78rem;
-    font-weight: 600;
-    padding: 6px 14px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
+  .ruler-mark {
+    position: relative;
+    padding-left: 14px;
+  }
+
+  .ruler-mark::before {
+    content: "";
+    position: absolute;
+    top: -28px;
+    left: 0;
+    width: 1px;
+    height: 24px;
+    background: var(--accent);
+  }
+
+  .ruler-mark::after {
+    content: "";
+    position: absolute;
+    top: -28px;
+    left: 0;
+    width: 6px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .ruler-value {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text);
+  }
+
+  .ruler-value--orgs { font-size: 0.95rem; letter-spacing: 0.01em; }
+
+  .ruler-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     color: var(--muted);
+    margin-top: 6px;
+    max-width: 220px;
   }
 
   /* ---------- DOMAINS ---------- */
@@ -189,14 +274,23 @@
 
   .domain-card {
     border: 1px solid var(--border);
-    border-radius: 10px;
+    border-radius: 2px;
     padding: 24px;
-    transition: border-color 0.2s ease, transform 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
 
   .domain-card:hover {
-    border-color: var(--muted);
-    transform: translateY(-2px);
+    border-color: var(--accent);
+    box-shadow: inset 0 2px 0 var(--accent);
+  }
+
+  .domain-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    margin-bottom: 12px;
   }
 
   .domain-card h3 {
@@ -238,7 +332,8 @@
   }
 
   .job-dates {
-    font-size: 0.82rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
     color: var(--muted);
     white-space: nowrap;
   }
@@ -259,7 +354,9 @@
   .job li::marker { color: var(--muted); }
 
   .metric {
+    font-family: var(--font-mono);
     font-weight: 700;
+    color: var(--accent);
   }
 
   .earlier-career {
@@ -358,20 +455,21 @@
   .writing-card {
     display: block;
     border: 1px solid var(--border);
-    border-radius: 10px;
+    border-radius: 2px;
     padding: 20px 24px;
     text-decoration: none;
     color: inherit;
-    transition: border-color 0.2s ease, transform 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
 
   .writing-card:hover {
-    border-color: var(--muted);
-    transform: translateY(-2px);
+    border-color: var(--accent);
+    box-shadow: inset 2px 0 0 var(--accent);
   }
 
   .writing-date {
-    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
     color: var(--muted);
     margin-bottom: 6px;
   }
@@ -422,19 +520,16 @@
     display: inline-block;
     margin-top: 32px;
     padding: 12px 24px;
-    background-color: var(--text);
-    color: var(--bg);
+    background-color: var(--accent);
+    color: var(--accent-contrast);
     font-weight: 600;
     font-size: 0.9rem;
-    border-radius: 6px;
+    border-radius: 2px;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease;
   }
 
-  .cta-btn:hover {
-    opacity: 0.85;
-    transform: translateY(-1px);
-  }
+  .cta-btn:hover { opacity: 0.85; }
 
   footer {
     padding: 32px 0 48px;
@@ -482,11 +577,19 @@
         Zero Trust transformations, and Agentic AI Governance for NATO, the World Bank Group, and the
         Cloud Security Alliance.
       </p>
-      <div class="hero-orgs">
-        <span class="org-pill">NATO</span>
-        <span class="org-pill">World Bank Group</span>
-        <span class="org-pill">Cloud Security Alliance</span>
-        <span class="org-pill">United Nations</span>
+      <div class="hero-ruler">
+        <div class="ruler-mark">
+          <div class="ruler-value" data-i18n="hero.stat1.value">20+</div>
+          <div class="ruler-label" data-i18n="hero.stat1.label">Years in institutional cybersecurity</div>
+        </div>
+        <div class="ruler-mark">
+          <div class="ruler-value" data-i18n="hero.stat2.value">50%</div>
+          <div class="ruler-label" data-i18n="hero.stat2.label">Vulnerability reduction led, World Bank Group</div>
+        </div>
+        <div class="ruler-mark">
+          <div class="ruler-value ruler-value--orgs" data-i18n="hero.stat3.value">NATO · WBG · CSA · UN</div>
+          <div class="ruler-label" data-i18n="hero.stat3.label">Institutions advised at architecture level</div>
+        </div>
       </div>
     </section>
 
@@ -496,14 +599,17 @@
       <h2 data-i18n="domains.headline">Where deep expertise meets institutional scale.</h2>
       <div class="domain-grid">
         <div class="domain-card">
+          <div class="domain-tag">SEC-AI</div>
           <h3 data-i18n="domains.card1.title">Agentic AI Security</h3>
           <p data-i18n="domains.card1.body">Governance frameworks for autonomous AI agents, Model Context Protocol (MCP) security, and MLOps threat modeling for production AI platforms.</p>
         </div>
         <div class="domain-card">
+          <div class="domain-tag">SEC-CLD</div>
           <h3 data-i18n="domains.card2.title">Cloud Modernization</h3>
           <p data-i18n="domains.card2.body">Hybrid multi-cloud security architecture across AWS, Azure, and GCP for large-scale, mission-critical institutional environments.</p>
         </div>
         <div class="domain-card">
+          <div class="domain-tag">SEC-OPS</div>
           <h3 data-i18n="domains.card3.title">DevSecOps &amp; Zero Trust</h3>
           <p data-i18n="domains.card3.body">Enterprise-wide DevSecOps pipeline transformation and Zero Trust architecture deployment, embedding security into every stage of delivery.</p>
         </div>
@@ -713,6 +819,12 @@
       "hero.eyebrow": "Cybersecurity Architecture & Advisory",
       "hero.headline": "Securing the world's most critical institutions for over two decades.",
       "hero.lead": "Principal Cybersecurity Architect & Advisor with 20+ years leading multi-cloud modernization, Zero Trust transformations, and Agentic AI Governance for NATO, the World Bank Group, and the Cloud Security Alliance.",
+      "hero.stat1.value": "20+",
+      "hero.stat1.label": "Years in institutional cybersecurity",
+      "hero.stat2.value": "50%",
+      "hero.stat2.label": "Vulnerability reduction led, World Bank Group",
+      "hero.stat3.value": "NATO · WBG · CSA · UN",
+      "hero.stat3.label": "Institutions advised at architecture level",
       "domains.eyebrow": "Key Strategic Domains",
       "domains.headline": "Where deep expertise meets institutional scale.",
       "domains.card1.title": "Agentic AI Security",
@@ -803,6 +915,12 @@
       "hero.eyebrow": "Siber Güvenlik Mimarisi ve Danışmanlığı",
       "hero.headline": "Dünyanın en kritik kurumlarını yirmi yılı aşkın süredir güvence altına alıyorum.",
       "hero.lead": "NATO, Dünya Bankası Grubu ve Cloud Security Alliance için çoklu bulut modernizasyonu, Zero Trust dönüşümleri ve Agentic AI Yönetişimi konularında liderlik eden, 20 yılı aşkın deneyime sahip Baş Siber Güvenlik Mimarı ve Danışmanı.",
+      "hero.stat1.value": "20+",
+      "hero.stat1.label": "Kurumsal siber güvenlikte yıl",
+      "hero.stat2.value": "%50",
+      "hero.stat2.label": "Dünya Bankası Grubu'nda liderlik ettiği güvenlik açığı azaltımı",
+      "hero.stat3.value": "NATO · WBG · CSA · UN",
+      "hero.stat3.label": "Mimari düzeyde danışmanlık verilen kurumlar",
       "domains.eyebrow": "Temel Stratejik Alanlar",
       "domains.headline": "Derin uzmanlığın kurumsal ölçekle buluştuğu yer.",
       "domains.card1.title": "Agentic AI Güvenliği",
