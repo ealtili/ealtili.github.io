@@ -655,6 +655,21 @@
 
   .cta-btn:hover { opacity: 0.85; }
 
+  .hero-cta { animation-delay: 0.3s; }
+
+  .mid-cta { margin-top: 12px; }
+
+  /* ---------- FAQ ---------- */
+  .faq-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 28px;
+  }
+
+  .faq-item h3 { font-size: 1rem; margin-bottom: 8px; }
+  .faq-item p { font-size: 0.9rem; color: var(--muted); }
+
   footer {
     padding: 32px 0 48px;
     text-align: center;
@@ -702,7 +717,7 @@
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
       </button>
-      <a class="nav-cta" href="#contact" data-i18n="nav.cta">Book a Session</a>
+      <a class="nav-cta" href="#contact" data-i18n="nav.cta">Book a Call</a>
     </div>
   </div>
 </header>
@@ -713,11 +728,11 @@
     <!-- HERO -->
     <section class="hero">
       <div class="eyebrow" data-i18n="hero.eyebrow">Cybersecurity Architecture &amp; Advisory</div>
-      <h1 data-i18n="hero.headline">Securing the world's most critical institutions for over two decades.</h1>
+      <h1 data-i18n="hero.headline">Cybersecurity architecture advisory for institutions that can't afford to get it wrong.</h1>
       <p class="lead" data-i18n="hero.lead">
-        Principal Cybersecurity Architect &amp; Advisor with 20+ years leading multi-cloud modernization,
-        Zero Trust transformations, and Agentic AI Governance for NATO, the World Bank Group, and the
-        Cloud Security Alliance.
+        20+ years architecting Zero Trust, multi-cloud, and Agentic AI security programs for NATO, the
+        United Nations, the World Bank Group, and the Cloud Security Alliance — now advising institutions
+        on the same transformations, from scoping to execution.
       </p>
       <div class="hero-ruler">
         <div class="ruler-mark">
@@ -733,6 +748,7 @@
           <div class="ruler-label" data-i18n="hero.stat3.label">Institutions advised at architecture level</div>
         </div>
       </div>
+      <a class="cta-btn hero-cta" href="#contact" data-i18n="hero.cta">Book Your 15-Minute Security Call</a>
     </section>
 
     <!-- STRATEGIC DOMAINS -->
@@ -841,6 +857,8 @@
       </div>
 
       <p class="earlier-career" data-i18n="exp.earlier">Earlier career: Senior IT System Engineer, IBM (2006–2008) · IT System Engineer, Alcatel (2004–2006) · IT Consultant, Altili IT Consulting (2001–2004) — foundational years in enterprise security architecture, threat modeling, and infrastructure security for Fortune 500 and telecom environments.</p>
+
+      <a class="cta-btn mid-cta" href="#contact" data-i18n="exp.midCta">Convinced? Book a 15-Minute Call →</a>
     </section>
 
     <!-- CERTIFICATIONS & PUBLICATIONS -->
@@ -921,6 +939,30 @@
       <a class="writing-more" href="https://ealtili.medium.com" target="_blank" rel="noopener" data-i18n="writing.more">Read more on Medium</a>
     </section>
 
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="eyebrow" data-i18n="faq.eyebrow">FAQ</div>
+      <h2 data-i18n="faq.headline">Questions worth asking before you book.</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3 data-i18n="faq.q1.title">What kind of engagements do you take on?</h3>
+          <p data-i18n="faq.q1.body">Advisory retainers, fixed-scope security architecture assessments, and board-level briefings — typically for institutions managing multi-cloud, Zero Trust, or AI governance transformations.</p>
+        </div>
+        <div class="faq-item">
+          <h3 data-i18n="faq.q2.title">Do you work with organizations outside government and finance?</h3>
+          <p data-i18n="faq.q2.body">Yes. The case studies here are institutional, but the same architecture patterns — Zero Trust, DevSecOps, Agentic AI governance — apply to any organization operating at scale.</p>
+        </div>
+        <div class="faq-item">
+          <h3 data-i18n="faq.q3.title">What does the 15-minute call cover?</h3>
+          <p data-i18n="faq.q3.body">A focused conversation on your current security posture, the problem you're trying to solve, and whether an engagement makes sense — no sales pitch.</p>
+        </div>
+        <div class="faq-item">
+          <h3 data-i18n="faq.q4.title">How quickly can an engagement start?</h3>
+          <p data-i18n="faq.q4.body">After the call, you'll receive a written scope and proposal — most engagements begin within two to four weeks of signing.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section id="contact">
       <div class="eyebrow" data-i18n="contact.eyebrow">Get In Touch</div>
@@ -948,7 +990,7 @@
         <div class="process-step">
           <div class="process-num">02</div>
           <h3 data-i18n="process.step2.title">Scoping &amp; proposal</h3>
-          <p data-i18n="process.step2.body">A clear, written scope of engagement — no surprises, no pressure.</p>
+          <p data-i18n="process.step2.body">You'll get a written scope and fixed engagement terms before any work begins — no open-ended retainers, no surprise costs.</p>
         </div>
         <div class="process-step">
           <div class="process-num">03</div>
@@ -957,7 +999,7 @@
         </div>
       </div>
 
-      <a class="cta-btn" href="https://cal.com/ealtili/15min" target="_blank" rel="noopener" data-i18n="contact.cta">Book a Session</a>
+      <a class="cta-btn" href="https://cal.com/ealtili/15min" target="_blank" rel="noopener" data-i18n="contact.cta">Book Your 15-Minute Security Call</a>
     </section>
 
   </div>
@@ -977,8 +1019,9 @@
     en: {
       "nav.title": "Principal Cybersecurity Architect & Advisor",
       "hero.eyebrow": "Cybersecurity Architecture & Advisory",
-      "hero.headline": "Securing the world's most critical institutions for over two decades.",
-      "hero.lead": "Principal Cybersecurity Architect & Advisor with 20+ years leading multi-cloud modernization, Zero Trust transformations, and Agentic AI Governance for NATO, the World Bank Group, and the Cloud Security Alliance.",
+      "hero.headline": "Cybersecurity architecture advisory for institutions that can't afford to get it wrong.",
+      "hero.lead": "20+ years architecting Zero Trust, multi-cloud, and Agentic AI security programs for NATO, the United Nations, the World Bank Group, and the Cloud Security Alliance — now advising institutions on the same transformations, from scoping to execution.",
+      "hero.cta": "Book Your 15-Minute Security Call",
       "hero.stat1.value": "20+",
       "hero.stat1.label": "Years in institutional cybersecurity",
       "hero.stat2.value": "50%",
@@ -1023,6 +1066,7 @@
       "exp.job5.bullet2": "Spearheaded global deployment of the Federated Mission Network (FMN) and launched the NATO1st Cross Collaboration Platform, enabling secure information sharing across the alliance.",
       "exp.job5.bullet3": "Led and mentored technical teams of 15+ members across NATO member states, improving performance by <span class=\"metric\">30%</span> through continuous improvement initiatives.",
       "exp.earlier": "Earlier career: Senior IT System Engineer, IBM (2006–2008) · IT System Engineer, Alcatel (2004–2006) · IT Consultant, Altili IT Consulting (2001–2004) — foundational years in enterprise security architecture, threat modeling, and infrastructure security for Fortune 500 and telecom environments.",
+      "exp.midCta": "Convinced? Book a 15-Minute Call →",
       "creds.eyebrow": "Certifications & Publications",
       "creds.headline": "Depth validated by rigor.",
       "creds.pubs.title": "Selected Publications",
@@ -1067,21 +1111,32 @@
       "contact.linkedin.label": "LinkedIn",
       "contact.medium.label": "Medium",
       "contact.github.label": "GitHub",
-      "contact.cta": "Book a Session",
+      "contact.cta": "Book Your 15-Minute Security Call",
       "process.step1.title": "Book a 15-minute call",
       "process.step1.body": "A focused conversation to understand your security posture and what you need.",
       "process.step2.title": "Scoping & proposal",
-      "process.step2.body": "A clear, written scope of engagement — no surprises, no pressure.",
+      "process.step2.body": "You'll get a written scope and fixed engagement terms before any work begins — no open-ended retainers, no surprise costs.",
       "process.step3.title": "Engagement kickoff",
       "process.step3.body": "Work begins against agreed milestones and measurable outcomes.",
-      "nav.cta": "Book a Session",
+      "nav.cta": "Book a Call",
+      "faq.eyebrow": "FAQ",
+      "faq.headline": "Questions worth asking before you book.",
+      "faq.q1.title": "What kind of engagements do you take on?",
+      "faq.q1.body": "Advisory retainers, fixed-scope security architecture assessments, and board-level briefings — typically for institutions managing multi-cloud, Zero Trust, or AI governance transformations.",
+      "faq.q2.title": "Do you work with organizations outside government and finance?",
+      "faq.q2.body": "Yes. The case studies here are institutional, but the same architecture patterns — Zero Trust, DevSecOps, Agentic AI governance — apply to any organization operating at scale.",
+      "faq.q3.title": "What does the 15-minute call cover?",
+      "faq.q3.body": "A focused conversation on your current security posture, the problem you're trying to solve, and whether an engagement makes sense — no sales pitch.",
+      "faq.q4.title": "How quickly can an engagement start?",
+      "faq.q4.body": "After the call, you'll receive a written scope and proposal — most engagements begin within two to four weeks of signing.",
       "footer.text": "© 2026 Eray ALTILI. All rights reserved."
     },
     tr: {
       "nav.title": "Baş Siber Güvenlik Mimarı ve Danışmanı",
       "hero.eyebrow": "Siber Güvenlik Mimarisi ve Danışmanlığı",
-      "hero.headline": "Dünyanın en kritik kurumlarını yirmi yılı aşkın süredir güvence altına alıyorum.",
-      "hero.lead": "NATO, Dünya Bankası Grubu ve Cloud Security Alliance için çoklu bulut modernizasyonu, Zero Trust dönüşümleri ve Agentic AI Yönetişimi konularında liderlik eden, 20 yılı aşkın deneyime sahip Baş Siber Güvenlik Mimarı ve Danışmanı.",
+      "hero.headline": "Yanlış giden bir güvenlik mimarisinin bedelini ödeyemeyecek kurumlar için siber güvenlik mimarisi danışmanlığı.",
+      "hero.lead": "NATO, Birleşmiş Milletler, Dünya Bankası Grubu ve Cloud Security Alliance için Zero Trust, çoklu bulut ve Agentic AI güvenlik programları tasarlayan 20 yılı aşkın deneyim — şimdi kurumlara aynı dönüşümler için kapsam belirlemeden uygulamaya kadar danışmanlık veriyorum.",
+      "hero.cta": "15 Dakikalık Güvenlik Görüşmesi Ayarlayın",
       "hero.stat1.value": "20+",
       "hero.stat1.label": "Kurumsal siber güvenlikte yıl",
       "hero.stat2.value": "%50",
@@ -1126,6 +1181,7 @@
       "exp.job5.bullet2": "Federated Mission Network'ün (FMN) küresel dağıtımına öncülük etti ve NATO1st Cross Collaboration Platformu'nu hayata geçirerek ittifak genelinde güvenli bilgi paylaşımını sağladı.",
       "exp.job5.bullet3": "NATO üye ülkeleri genelinde 15'ten fazla kişilik teknik ekiplere liderlik etti ve mentorluk yaptı; sürekli iyileştirme girişimleriyle performansı <span class=\"metric\">%30</span> artırdı.",
       "exp.earlier": "Erken kariyer: Kıdemli BT Sistem Mühendisi, IBM (2006–2008) · BT Sistem Mühendisi, Alcatel (2004–2006) · BT Danışmanı, Altili IT Consulting (2001–2004) — Fortune 500 ve telekom ortamlarında kurumsal güvenlik mimarisi, tehdit modelleme ve altyapı güvenliğinde temel oluşturan yıllar.",
+      "exp.midCta": "İkna oldunuz mu? 15 dakikalık görüşme ayarlayın →",
       "creds.eyebrow": "Sertifikalar ve Yayınlar",
       "creds.headline": "Titizlikle doğrulanmış derinlik.",
       "creds.pubs.title": "Seçilmiş Yayınlar",
@@ -1170,14 +1226,24 @@
       "contact.linkedin.label": "LinkedIn",
       "contact.medium.label": "Medium",
       "contact.github.label": "GitHub",
-      "contact.cta": "Görüşme Ayarlayın",
+      "contact.cta": "15 Dakikalık Güvenlik Görüşmesi Ayarlayın",
       "process.step1.title": "15 dakikalık görüşme ayarlayın",
       "process.step1.body": "Güvenlik duruşunuzu ve ihtiyaçlarınızı anlamaya yönelik odaklı bir görüşme.",
       "process.step2.title": "Kapsam belirleme ve teklif",
-      "process.step2.body": "Net, yazılı bir çalışma kapsamı — sürpriz yok, baskı yok.",
+      "process.step2.body": "Herhangi bir çalışma başlamadan önce yazılı bir kapsam ve sabit katılım şartları alacaksınız — açık uçlu sözleşme yok, sürpriz maliyet yok.",
       "process.step3.title": "Çalışmanın başlaması",
       "process.step3.body": "Üzerinde anlaşılan kilometre taşları ve ölçülebilir sonuçlara göre çalışma başlar.",
       "nav.cta": "Görüşme Ayarlayın",
+      "faq.eyebrow": "SSS",
+      "faq.headline": "Görüşme ayarlamadan önce sormaya değer sorular.",
+      "faq.q1.title": "Ne tür işlerle ilgileniyorsunuz?",
+      "faq.q1.body": "Danışmanlık sözleşmeleri, sabit kapsamlı güvenlik mimarisi değerlendirmeleri ve yönetim kurulu düzeyinde brifingler — genellikle çoklu bulut, Zero Trust veya yapay zeka yönetişimi dönüşümü yürüten kurumlar için.",
+      "faq.q2.title": "Kamu ve finans dışındaki kuruluşlarla çalışıyor musunuz?",
+      "faq.q2.body": "Evet. Buradaki örnek çalışmalar kurumsal olsa da aynı mimari yaklaşımlar — Zero Trust, DevSecOps, Agentic AI yönetişimi — her ölçekte çalışan kuruluşlar için geçerlidir.",
+      "faq.q3.title": "15 dakikalık görüşmede neler konuşulur?",
+      "faq.q3.body": "Mevcut güvenlik duruşunuz, çözmeye çalıştığınız sorun ve bir çalışmanın mantıklı olup olmadığına odaklanan bir görüşme — satış sunumu değil.",
+      "faq.q4.title": "Bir çalışma ne kadar hızlı başlayabilir?",
+      "faq.q4.body": "Görüşmenin ardından yazılı bir kapsam ve teklif alırsınız — çoğu çalışma imzadan iki ila dört hafta içinde başlar.",
       "footer.text": "© 2026 Eray ALTILI. Tüm hakları saklıdır."
     }
   };
